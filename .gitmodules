@@ -1,0 +1,3 @@
+[submodule "latexpresents"]
+	path = latexpresents
+	url = https://github.com/robotic-esp/latexpresents.git

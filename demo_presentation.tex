@@ -1,0 +1,388 @@
+\documentclass[aspectratio=169,12pt]{beamer}%
+% Beamer Options:
+% Required for LaTeXPresents: 12pt
+% Aspect ratios: 169 (16:9), 1610 (16:10), 149 (14:9), 32 (3:2), 141 (1.41:1), 43 (4:3), 54 (5:4)
+
+% Load LaTeXPresents
+\usepackage[pdfpc,theme=demo_theme.sty]{latexpresents/latexpresents}%
+% LaTeXPresents Options:
+% Theme file: theme=relative/path_to_theme.sty
+% Colour mode: light (default), dark
+% Video embedding mode: pdfpc (default), adobe
+% File purpose: present (default), handout
+% Multimedia: videos (default), novideos
+% Slide numbers: pagenumbers (default), nonumbers
+% Title page: titlepage (default), notitlepage
+% Column alignment: alignedtop (default), raggedtop
+% Column alignment: alignedbottom , raggedbottom (default)
+% Debug: debug, nodebug (default)
+
+
+% Math setup
+\usepackage{amsmath,amssymb,amsfonts,amscd,amsthm}% AMS
+% A modern font setup.
+\usepackage{lmodern}% A modern scalable font based on Computer Modern.
+\usepackage[T1]{fontenc}% A full font encoding.
+\usepackage{microtype}% Make pdflatex look more good.
+
+% Setup hyperref to be not ugly.
+\hypersetup{%
+    pdfstartview=FitH,%
+    breaklinks=true,%
+    colorlinks=true,%
+    hidelinks%
+}%
+
+
+% Presentation info.
+\title{Simple Examples of \LaTeX{}Presents}
+\author{Author}
+\group{Team}
+\date{\today}
+
+
+\begin{document}
+
+    \begin{frame}{Media}{Images}
+        \twocolumneven[alignedtop,alignedbottom]%
+        {%
+            \begin{itemize}
+                \item An image without a caption that fills its fully aligned column.
+                \begin{itemize}
+                    \item Curiosity courtesy of NASA/JPL-Caltech
+                \end{itemize}
+            \end{itemize}
+        }%
+        {%
+            \image{figs/PIA23240.png}
+        }%
+    \end{frame}
+    \begin{frame}{Media}{Images}
+        \twocolumneven[alignedtop,alignedbottom]%
+        {%
+            \begin{itemize}
+                \item An image with a caption that fills its fully aligned column.
+            \end{itemize}
+        }%
+        {%
+            \image[Curiosity (Courtesy of NASA/JPL-Caltech)]{figs/PIA23240.png}
+        }%
+    \end{frame}
+    \begin{frame}{Media}{Images}
+        \twocolumneven[raggedtop,raggedbottom]%
+        {%
+            \begin{itemize}
+                \item An image with a caption that fills its automatically maximized column.
+            \end{itemize}
+        }%
+        {%
+            \image[Curiosity (Courtesy of NASA/JPL-Caltech)]{figs/PIA23240.png}
+        }%
+    \end{frame}
+    \begin{frame}{Media}{Images}
+        \twocolumneven[raggedtop,raggedbottom]%
+        {%
+            \begin{itemize}
+                \item An image with a caption that is manually allowed to extend outside its automatically maximized column.
+            \end{itemize}
+        }%
+        {%
+            \image[Curiosity (Courtesy of NASA/JPL-Caltech)][underhangcaption]{figs/PIA23240.png}
+        }%
+    \end{frame}
+    \begin{frame}{Media}{Images}
+        \twocolumneven[raggedtop]%
+        {%
+            \begin{itemize}
+                \item Two images, one with caption and one without.
+            \end{itemize}
+        }%
+        {%
+            \imagestopbottom{figs/PIA23240.png}[Curiosity (Courtesy of NASA/JPL-Caltech)][underhangcaption]{figs/PIA23240.png}
+        }%
+    \end{frame}
+    \begin{frame}{Media}{Images}
+        \tworowbigbottom%
+        {%
+            \begin{itemize}
+                \item Two images both with captions.
+            \end{itemize}
+        }%
+        {%
+            \imagesleftright[Curiosity (Courtesy of NASA/JPL-Caltech)]{figs/PIA23240.png}[Curiosity (Courtesy of NASA/JPL-Caltech)]{figs/PIA23240.png}
+        }%
+    \end{frame}
+    \begin{frame}
+        \fullimage[Mars (Courtesy of NASA/JPL-Caltech)][captionposition=southeast]{figs/pia22209.png}
+    \end{frame}
+
+    %\pdfpage example?
+
+    \begin{frame}{Media}{Video}
+        \twocolumnbigright%
+        {%
+            \begin{itemize}
+                \item A video with a caption playing automatically on a loop.
+            \end{itemize}
+        }%
+        {%
+            \video[Ingenuity (Courtesy of NASA/JPL-Caltech)]{vids/PIA25970_trim_enc.png}{vids/PIA25970_trim_enc.mp4}
+        }%
+    \end{frame}
+    \begin{frame}{Media}{Video}
+        \twocolumnbigright%
+        {%
+            \begin{itemize}
+                \item A video without a caption playing once, on click.
+                \begin{itemize}
+                    \item Ingenuity courtesy of NASA/JPL-Caltech
+                \end{itemize}
+            \end{itemize}
+        }%
+        {%
+            \video[][once,onclick]{vids/PIA25970_trim_enc.png}{vids/PIA25970_trim_enc.mp4}
+        }%
+    \end{frame}
+    \begin{frame}{Media}
+        \fullvideo{vids/PIA25970_trim_enc.png}{vids/PIA25970_trim_enc.mp4}
+    \end{frame}
+
+
+
+    \begin{frame}{Uncover Step}
+        \onecolumnfull%
+        {%
+            \begin{itemize}%
+                \item First
+                \uncoverstep{\item Second}%
+                \uncoverstep{\item Third}%
+            \end{itemize}%
+        }%
+    \end{frame}
+
+    \begin{frame}{Only Once}
+        \onecolumnfull%
+        {%
+            \begin{itemize}%
+                \onlyonce%
+                {%
+                    \item Question?
+                }%
+                \onlyonce%
+                {%
+                    \item Answer.
+                }%
+            \end{itemize}%
+        }%
+    \end{frame}
+
+    \addlightmodelogo{figs/logo3_reverse_crop.pdf}
+    \adddarkmodelogo{figs/logo3_reverse_crop.pdf}
+    \begin{frame}{Logos}
+        \onecolumnfull%
+        {%
+            \begin{itemize}
+                \item New logo added to just this slide for both light and dark presentations.
+            \end{itemize}
+        }%
+    \end{frame}
+    \resetlogos{}
+
+    \addperson{figs/headshot.pdf}
+    \begin{frame}{Collaborators}
+        \onecolumnfull%
+        {%
+            \begin{itemize}
+                \item New person added to just this slide.
+            \end{itemize}
+        }%
+    \end{frame}
+    \clearpeople{}
+
+
+    \begin{frame}{Speaker Notes}
+        \onecolumneven%
+        {%
+            A slide with speaker's notes, if the reader supports it.
+        }%
+        \say%
+        {%
+            - Introduce speaker's notes\\%
+            - ...\\%
+            - Profit%
+        }%
+    \end{frame}
+
+    \begin{frame}{Transition Effect}
+        \settransitioneffect{\transpush}
+        \settransitiontime{1.0}
+        \settransitionangle{180}
+        \onecolumneven%
+        {%
+            A slide with an incoming transition effect, if the reader supports it.
+        }%
+    \end{frame}
+
+    \begin{frame}{Automatic Slide Advancement}
+        \autoadvance{2.0}
+        \onecolumneven%
+        {%
+            A slide automatically advancing after 2 seconds, if the reader supports it.
+        }%
+    \end{frame}
+
+
+
+    \begin{frame}{Lists \& Colours}
+        \threecolumneven%
+        {%
+            \begin{itemize}
+                \item Regular text
+                \item \emph{Emphasized text}
+                \item Alerted text:
+                \begin{itemize}
+                    \item \alertBlue{A blue alert}%
+                    \item \alertGreen{A green alert}%
+                    \item \alertYellow{A yellow alert}%
+                    \item \alertOrange{An orange alert}%
+                    \item \alertRed{A red alert}%
+                    \begin{itemize}
+                        \item \alertRed{\LaTeX{} and $\zeta$}
+                    \end{itemize}
+                \end{itemize}
+                \item Regular text with math: $42$%
+            \end{itemize}
+        }%
+        {%
+            \begin{enumerate}
+                \item Regular text
+                \item \emph{Emphasized text}
+                \item Alerted text:
+                \begin{enumerate}
+                    \item \alertBlue{A blue alert}%
+                    \item \alertGreen{A green alert}%
+                    \item \alertYellow{A yellow alert}%
+                    \item \alertOrange{An orange alert}%
+                    \item \alertRed{A red alert}%
+                    \begin{enumerate}
+                        \item \alertRed{\LaTeX{} and $\zeta$}
+                    \end{enumerate}
+                \end{enumerate}
+                \item Regular text with math: $42$%
+            \end{enumerate}
+        }%
+        {%
+            \begin{description}[Emphasis]
+                \item [Regular] Regular text
+                \item [Emphasis] \emph{Emphasized text}
+                \item [Alert] \alertBlue{Alerted text}
+            \end{description}
+        }%
+    \end{frame}
+
+    \begin{frame}{Font sizes}
+        \twocolumneven%
+        {%
+            \begin{description}[\texttt{footnotesize}]
+                \item[\texttt{TINY}] \TINY asdf
+                \item[\texttt{Tiny}] \Tiny asdf
+                \item[\texttt{tiny}] \tiny asdf
+                \item[\texttt{scriptsize}] \scriptsize asdf
+                \item[\texttt{footnotesize}] \footnotesize asdf
+                \item[\texttt{small}] \small asdf
+                \item[\texttt{normalsize}] \normalsize asdf
+            \end{description}
+        }%
+        {%
+            \begin{description}[\texttt{LARGE}]
+                \item[\texttt{large}] \large asdf
+                \item[\texttt{Large}] \Large asdf
+                \item[\texttt{LARGE}] \LARGE asdf
+                \item[\texttt{huge}] \huge asdf
+                \item[\texttt{Huge}] \Huge asdf
+            \end{description}
+        }%
+    \end{frame}
+
+    \begin{frame}
+        \thankspage
+    \end{frame}
+
+
+
+    \extraslides%
+    {%
+    \begin{frame}{Image Credits}
+        \tworoweven%
+        {%
+            \begin{itemize}
+                \item Images and videos courtesy of NASA/JPL-Caltech:
+                \begin{itemize}
+                    \item \url{https://mars.nasa.gov/multimedia/images/}
+                \end{itemize}
+            \end{itemize}
+        }%
+        {%
+        }%
+    \end{frame}
+    \begin{frame}{Debugging}
+        \threecolumneven[debug]
+        {%
+            \begin{itemize}
+                \item A layout with debugging enabled.
+            \end{itemize}
+        }%
+        {%
+        }%
+        {%
+        }%
+    \end{frame}
+    \begin{frame}{Media}{Images [debug]}
+        \twocolumneven[alignedtop,alignedbottom,debug]%
+        {%
+            \begin{itemize}
+                \item An image without a caption that fills its fully aligned column.
+                \begin{itemize}
+                    \item Curiosity courtesy of NASA/JPL-Caltech
+                \end{itemize}
+            \end{itemize}
+        }%
+        {%
+            \image{figs/PIA23240.png}
+        }%
+    \end{frame}
+    \begin{frame}{Media}{Images [debug]}
+        \twocolumneven[alignedtop,alignedbottom,debug]%
+        {%
+            \begin{itemize}
+                \item An image with a caption that fills its fully aligned column.
+            \end{itemize}
+        }%
+        {%
+            \image[Curiosity (Courtesy of NASA/JPL-Caltech)]{figs/PIA23240.png}
+        }%
+    \end{frame}
+    \begin{frame}{Media}{Images [debug]}
+        \twocolumneven[raggedtop,raggedbottom,debug]%
+        {%
+            \begin{itemize}
+                \item An image with a caption that fills its automatically maximized column.
+            \end{itemize}
+        }%
+        {%
+            \image[Curiosity (Courtesy of NASA/JPL-Caltech)]{figs/PIA23240.png}
+        }%
+    \end{frame}
+    \begin{frame}{Media}{Images [debug]}
+        \twocolumneven[raggedtop,raggedbottom,debug]%
+        {%
+            \begin{itemize}
+                \item An image with a caption that is manually allowed to extend outside its automatically maximized column.
+            \end{itemize}
+        }%
+        {%
+            \image[Curiosity (Courtesy of NASA/JPL-Caltech)][underhangcaption]{figs/PIA23240.png}
+        }%
+    \end{frame}
+    }%
+\end{document}
