@@ -8,11 +8,12 @@
 % LaTeXPresents Options:
 % Theme file: theme=relative/path_to_theme.sty
 % Colour mode: light (default), dark
-% Video embedding mode: pdfpc (default), adobe
+% PDF Reader: pdfpc (default), adobe
 % File purpose: present (default), handout
 % Multimedia: videos (default), novideos
 % Slide numbers: pagenumbers (default), nonumbers
 % Title page: titlepage (default), notitlepage
+% Closing page: closingpage (default), noclosingpage
 % Column alignment: alignedtop (default), raggedtop
 % Column alignment: alignedbottom , raggedbottom (default)
 % Debug: debug, nodebug (default)
@@ -43,6 +44,15 @@
 
 \begin{document}
 
+    \begin{frame}{Multimedia}
+        \onecolumnfull
+        {%
+            \begin{itemize}
+                \item This example is compiled for \href{https://pdfpc.github.io/}{\texttt{pdfpc}}.
+                To play the videos in any other PDF reader, it will need to be recompiled using the \texttt{adobe} package option.
+            \end{itemize}
+        }%
+    \end{frame}
     \begin{frame}{Media}{Images}
         \twocolumneven[alignedtop,alignedbottom]%
         {%
@@ -303,15 +313,6 @@
             \end{description}
         }%
     \end{frame}
-
-    \begin{frame}
-        \thankspage
-    \end{frame}
-
-
-
-    \extraslides%
-    {%
     \begin{frame}{Image Credits}
         \tworoweven%
         {%
@@ -325,6 +326,11 @@
         {%
         }%
     \end{frame}
+
+
+
+    \extraslides%
+    {%
     \begin{frame}{Debugging}
         \threecolumneven[debug]
         {%
